@@ -3,6 +3,7 @@ package com.codeclan.employeelab.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -36,7 +37,7 @@ public class Employee {
         this.firstName = firstName;
         this.lastName = lastName;
         this.employeeNumber = employeeNumber;
-        this.projects = projects;
+        this.projects = new ArrayList<>();
         this.department = department;
     }
 

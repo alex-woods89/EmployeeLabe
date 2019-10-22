@@ -3,6 +3,7 @@ package com.codeclan.employeelab.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Table(name = "projects")
@@ -13,7 +14,7 @@ public class Project {
     private Long id;
 
     @Column(name = "name")
-    private String Name;
+    private String name;
 
     @Column(name = "number_of_days")
     private int numberOfDays;
@@ -33,19 +34,19 @@ public class Project {
     private List<Employee> employees;
 
     public Project(String name, int numberOfDays) {
-        Name = name;
+        this.name = name;
         this.numberOfDays = numberOfDays;
-        this.employees = employees;
+        this.employees = new ArrayList<>();
     }
 
     public Project(){}
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        name = name;
     }
 
     public int getNumberOfDays() {
@@ -70,5 +71,9 @@ public class Project {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void addEmployee(Employee employee){
+        this.employees.add(employee);
     }
 }
